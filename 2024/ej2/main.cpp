@@ -7,15 +7,10 @@
 #include <vector>
 #include <string>
 
-enum State {
-  FIRST, 
-  SECOND,
-  REST
-};
-
 enum Order {
   ASCENDING,
-  DESCENDING
+  DESCENDING,
+  UNKNOWN
 };
 
 bool isValid(int prev, int curr, enum Order order) {
@@ -34,39 +29,26 @@ bool isValid(int prev, int curr, enum Order order) {
 
 int main() {
   std::ifstream input_file("input.txt");
-  int safe = 0;
 
+  int safe = 0;
   std::string line;
   while(getline(input_file, line)) {
     int prev = 0, curr = 0;
-    enum State state = FIRST;
-    enum Order order;
-    bool report_valid = true;
-    
-    for(char &c : line) {
+    bool isFirst = true, report_valid = true;
+    enum Order order = UNKNOWN;
+
+    for(auto it = line.begin(); it != line.end() && report_valid; it++) {
+      char c = *it;
       if(c != ' ') {
         curr = curr * 10 + (c - '0');
       } else {
-        if(state == FIRST){
-          state = SECOND;
-        } else if(state == SECOND) {
-          if(prev < curr) {
-            order = ASCENDING;
-          } else if(prev > curr){
-            order = DESCENDING;
-          }
-          state = REST;
-          report_valid = isValid(prev, curr, order);
-        } else {
+        if(!isFirst) {
+          if(order == UNKNOWN) order = prev < curr ? ASCENDING : DESCENDING;
           report_valid = isValid(prev, curr, order);
         }
+        isFirst = false;
         prev = curr;
         curr = 0;
-      }
-
-
-      if(!report_valid) {
-        break;
       }
     }
     if(report_valid) report_valid = isValid(prev, curr, order);
