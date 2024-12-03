@@ -1,3 +1,10 @@
+// This script should be run witho node v22.9.0
+//
+// An `input.txt` file is required in the same folder the solution is in
+//
+// The format is a newline separated list of space separated int unsigned 
+// values
+
 const fs = require("fs");
 const path = require("path");
 
