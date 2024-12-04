@@ -1,3 +1,4 @@
+// Find problem at: https://adventofcode.com/2024/day/2
 // This script should be run witho node v22.9.0
 //
 // An `input.txt` file is required in the same folder the solution is in
