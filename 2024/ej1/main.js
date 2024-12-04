@@ -15,8 +15,8 @@ const fileInfo = fs.readFileSync(path.join(__dirname, "input.txt")).toString();
 
 let firstList = [];
 let secondList = [];
-for(let l of fileInfo.split("\n")) {
-  let numbers = l.split("   ").map(v => parseInt(v));
+for (let l of fileInfo.split("\n")) {
+  let numbers = l.split("   ").map((v) => parseInt(v));
   firstList.push(numbers[0]);
   secondList.push(numbers[1]);
 }
@@ -29,7 +29,7 @@ let secondSorted = secondList.sort();
 // console.log("secondSorted: ", secondSorted);
 
 let sum = 0;
-for(let i = 0; i < firstSorted.length; i++) {
+for (let i = 0; i < firstSorted.length; i++) {
   sum += Math.abs(firstSorted[i] - secondSorted[i]);
 }
 
