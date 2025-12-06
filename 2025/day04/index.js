@@ -1,4 +1,4 @@
-// Find problem at: https://adventofcode.com/2025/day/1
+// Find problem at: https://adventofcode.com/2025/day/4
 
 // Format of inputs is a newline separated list of a r"(.|@)+"
 // Solution tested with node v22.9.0

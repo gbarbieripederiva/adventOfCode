@@ -1,4 +1,4 @@
-// Find problem at: https://adventofcode.com/2025/day/1
+// Find problem at: https://adventofcode.com/2025/day/5
 
 // Format of inputs is a newline separated list of a r"(\d+-\d+)" followed by
 // a empty line followed by a list of r"(\d+)"
@@ -9,7 +9,9 @@ const path = require("path");
 const { argv } = require("process");
 
 const filepath = argv.length > 2 ? argv[2] : null;
-const fileInfo = fs.readFileSync(filepath != null ? filepath : path.join(__dirname, "input.txt")).toString();
+const fileInfo = fs
+  .readFileSync(filepath != null ? filepath : path.join(__dirname, "input.txt"))
+  .toString();
 // console.log("fileInfo: ", fileInfo);
 
 const lines = fileInfo.split("\n");
@@ -24,8 +26,10 @@ for (const line of lines) {
 
 function canBeMerged(r1, r2) {
   return (
-    (r1[0] <= r2[0] && r2[0] <= r1[1]) || (r1[0] <= r2[1] && r2[1] <= r1[1]) ||
-    (r2[0] <= r1[0] && r1[0] <= r2[1]) || (r2[0] <= r1[1] && r1[1] <= r2[1])
+    (r1[0] <= r2[0] && r2[0] <= r1[1]) ||
+    (r1[0] <= r2[1] && r2[1] <= r1[1]) ||
+    (r2[0] <= r1[0] && r1[0] <= r2[1]) ||
+    (r2[0] <= r1[1] && r1[1] <= r2[1])
   );
 }
 

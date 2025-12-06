@@ -1,4 +1,4 @@
-// Find problem at: https://adventofcode.com/2025/day/1
+// Find problem at: https://adventofcode.com/2025/day/3
 
 // Format of inputs is a newline separated list of a r"\d\d\d+"
 // Solution tested with node v22.9.0
@@ -47,7 +47,7 @@ for (const line of lines) {
   //   line[maxIndex1].toString().concat(line[maxIndex2].toString())
   // );
   res += parseInt(
-    line[maxIndex1].toString().concat(line[maxIndex2].toString())
+    line[maxIndex1].toString().concat(line[maxIndex2].toString()),
   );
 }
 

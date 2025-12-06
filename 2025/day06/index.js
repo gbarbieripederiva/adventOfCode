@@ -1,4 +1,4 @@
-// Find problem at: https://adventofcode.com/2025/day/1
+// Find problem at: https://adventofcode.com/2025/day/6
 
 // Format of inputs is a newline separated list of a r"((\d+ )+\d)" followed by
 // a last line of r"((\+|\*)+)"
